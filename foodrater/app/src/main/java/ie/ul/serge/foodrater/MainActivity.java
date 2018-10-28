@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
-        FoodAdapter foodAdapter = new FoodAdapter();
+        final FoodAdapter foodAdapter = new FoodAdapter();
         recyclerView.setAdapter(foodAdapter);
 
         foodAdapter.addFood();
@@ -32,8 +32,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                foodAdapter.addFood();
+;
             }
         });
     }
